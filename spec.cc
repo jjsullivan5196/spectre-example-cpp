@@ -16,7 +16,7 @@ using namespace std;
 //--------------------------------------------------------------------
 // Victim code
 //--------------------------------------------------------------------
-const auto secret = "The Magic Words are Squeamish Ossifrage.";
+const char* secret = "Monte Otter lives at 100 Campus Ctr.";
 
 unsigned int array1_size = 16;
 const uint8_t unused_size = 64;
@@ -105,6 +105,7 @@ void readMemoryByte(size_t malicious_x, uint8_t value[2], int score[2], void (*v
 }
 
 int main(int argc, const char** argv) {
+	// Create an offset to the 'secret' based on publicly available information
 	size_t malicious_x = (size_t)(secret - (char*)array1.data()); // default for malicious_x
 	int score[2], len = strlen(secret);
 	uint8_t value[2];
